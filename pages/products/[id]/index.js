@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import Link from 'next/link';
 import Image from 'next/image';
 
-const ProductPage = ({ data }) => {
+const ProductPage = () => {
   const router = useRouter();
   const { id } = router.query;
-
-  console.log('data');
 
   return (
     <>
@@ -23,15 +21,6 @@ const ProductPage = ({ data }) => {
       />
     </>
   )
-}
-
-export async function getStaticProps() {
-  const res = fetch("https://jsonplaceholder.typicode.com/posts");
-  const data = await res.json();
-
-  return {
-    props: { data }
-  }
 }
 
 export default ProductPage;
